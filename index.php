@@ -112,11 +112,11 @@
         const typingMsg = appendMessage('Bot is typing…', 'bot', true);
 
         try {
-            const res = await fetch(`/faq.php?q=${encodeURIComponent(question)}`);
+            const res = await fetch(`/api/faq_rag.php?q=${encodeURIComponent(question)}`);
             if (!res.ok) throw new Error('Network error');
             const data = await res.json();
             typingMsg.remove();
-            appendMessage(data?.answer || 'No answer available.', 'bot');
+            appendMessage((data?.answer ) || 'No answer available.', 'bot');
         } catch (err) {
             typingMsg.remove();
             appendMessage('Failed to fetch answer. Please try again.', 'bot');

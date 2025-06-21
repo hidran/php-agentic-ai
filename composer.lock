@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3047cf076216eeaee04dc8868aa8d410",
+    "content-hash": "929897b80f9258f44b6afaefd14751a0",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -394,6 +394,62 @@
             "time": "2025-03-27T12:30:47+00:00"
         },
         {
+            "name": "hkulekci/qdrant",
+            "version": "v0.5.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hkulekci/qdrant-php.git",
+                "reference": "9be8fa3c52514c35f3e6c7db1c34f43335891fa2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hkulekci/qdrant-php/zipball/9be8fa3c52514c35f3e6c7db1c34f43335891fa2",
+                "reference": "9be8fa3c52514c35f3e6c7db1c34f43335891fa2",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.1",
+                "php-http/discovery": "^1.19",
+                "psr/http-client": "^1.0",
+                "psr/http-client-implementation": "^1.0",
+                "psr/http-factory": "^1.0",
+                "psr/http-factory-implementation": "^1.0",
+                "psr/http-message": "^1.0|^2.0",
+                "psr/log": "^1.0|^2.0|^3.0",
+                "webmozart/assert": "^1.11"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.5",
+                "nyholm/psr7": "^1.8@dev",
+                "php-http/mock-client": "1.x-dev",
+                "phpunit/php-code-coverage": "^10.1@dev",
+                "phpunit/phpunit": "^10.0",
+                "symfony/http-client": "^6.4.3|^7.1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Qdrant\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Haydar Kulekci",
+                    "email": "haydarkulekci@gmail.com"
+                }
+            ],
+            "description": "PHP Client for Qdrant",
+            "support": {
+                "issues": "https://github.com/hkulekci/qdrant-php/issues",
+                "source": "https://github.com/hkulekci/qdrant-php/tree/v0.5.8"
+            },
+            "time": "2024-11-30T06:03:37+00:00"
+        },
+        {
             "name": "openai-php/client",
             "version": "v0.13.0",
             "source": {
@@ -618,6 +674,166 @@
                 "source": "https://github.com/php-http/multipart-stream-builder/tree/1.4.2"
             },
             "time": "2024-09-04T13:22:54+00:00"
+        },
+        {
+            "name": "phpoffice/math",
+            "version": "0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPOffice/Math.git",
+                "reference": "fc31c8f57a7a81f962cbf389fd89f4d9d06fc99a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPOffice/Math/zipball/fc31c8f57a7a81f962cbf389fd89f4d9d06fc99a",
+                "reference": "fc31c8f57a7a81f962cbf389fd89f4d9d06fc99a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-xml": "*",
+                "php": "^7.1|^8.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^0.12.88 || ^1.0.0",
+                "phpunit/phpunit": "^7.0 || ^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpOffice\\Math\\": "src/Math/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Progi1984",
+                    "homepage": "https://lefevre.dev"
+                }
+            ],
+            "description": "Math - Manipulate Math Formula",
+            "homepage": "https://phpoffice.github.io/Math/",
+            "keywords": [
+                "MathML",
+                "officemathml",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/PHPOffice/Math/issues",
+                "source": "https://github.com/PHPOffice/Math/tree/0.3.0"
+            },
+            "time": "2025-05-29T08:31:49+00:00"
+        },
+        {
+            "name": "phpoffice/phpword",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPOffice/PHPWord.git",
+                "reference": "6d75328229bc93790b37e93741adf70646cea958"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPOffice/PHPWord/zipball/6d75328229bc93790b37e93741adf70646cea958",
+                "reference": "6d75328229bc93790b37e93741adf70646cea958",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-gd": "*",
+                "ext-json": "*",
+                "ext-xml": "*",
+                "ext-zip": "*",
+                "php": "^7.1|^8.0",
+                "phpoffice/math": "^0.3"
+            },
+            "require-dev": {
+                "dompdf/dompdf": "^2.0 || ^3.0",
+                "ext-libxml": "*",
+                "friendsofphp/php-cs-fixer": "^3.3",
+                "mpdf/mpdf": "^7.0 || ^8.0",
+                "phpmd/phpmd": "^2.13",
+                "phpstan/phpstan": "^0.12.88 || ^1.0.0",
+                "phpstan/phpstan-phpunit": "^1.0 || ^2.0",
+                "phpunit/phpunit": ">=7.0",
+                "symfony/process": "^4.4 || ^5.0",
+                "tecnickcom/tcpdf": "^6.5"
+            },
+            "suggest": {
+                "dompdf/dompdf": "Allows writing PDF",
+                "ext-xmlwriter": "Allows writing OOXML and ODF",
+                "ext-xsl": "Allows applying XSL style sheet to headers, to main document part, and to footers of an OOXML template"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpOffice\\PhpWord\\": "src/PhpWord"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Baker"
+                },
+                {
+                    "name": "Gabriel Bull",
+                    "email": "me@gabrielbull.com",
+                    "homepage": "http://gabrielbull.com/"
+                },
+                {
+                    "name": "Franck Lefevre",
+                    "homepage": "https://rootslabs.net/blog/"
+                },
+                {
+                    "name": "Ivan Lanin",
+                    "homepage": "http://ivan.lanin.org"
+                },
+                {
+                    "name": "Roman Syroeshko",
+                    "homepage": "http://ru.linkedin.com/pub/roman-syroeshko/34/a53/994/"
+                },
+                {
+                    "name": "Antoine de Troostembergh"
+                }
+            ],
+            "description": "PHPWord - A pure PHP library for reading and writing word processing documents (OOXML, ODF, RTF, HTML, PDF)",
+            "homepage": "https://phpoffice.github.io/PHPWord/",
+            "keywords": [
+                "ISO IEC 29500",
+                "OOXML",
+                "Office Open XML",
+                "OpenDocument",
+                "OpenXML",
+                "PhpOffice",
+                "PhpWord",
+                "Rich Text Format",
+                "WordprocessingML",
+                "doc",
+                "docx",
+                "html",
+                "odf",
+                "odt",
+                "office",
+                "pdf",
+                "php",
+                "reader",
+                "rtf",
+                "template",
+                "template processor",
+                "word",
+                "writer"
+            ],
+            "support": {
+                "issues": "https://github.com/PHPOffice/PHPWord/issues",
+                "source": "https://github.com/PHPOffice/PHPWord/tree/1.4.0"
+            },
+            "time": "2025-06-05T10:32:36+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -855,6 +1071,56 @@
             "time": "2023-04-04T09:54:51+00:00"
         },
         {
+            "name": "psr/log",
+            "version": "3.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "f16e1d5863e37f8d8c2a01719f5b34baa2b714d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/f16e1d5863e37f8d8c2a01719f5b34baa2b714d3",
+                "reference": "f16e1d5863e37f8d8c2a01719f5b34baa2b714d3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Log\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
+            "keywords": [
+                "log",
+                "psr",
+                "psr-3"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/log/tree/3.0.2"
+            },
+            "time": "2024-09-11T13:17:53+00:00"
+        },
+        {
             "name": "ralouphie/getallheaders",
             "version": "3.0.3",
             "source": {
@@ -897,6 +1163,57 @@
                 "source": "https://github.com/ralouphie/getallheaders/tree/develop"
             },
             "time": "2019-03-08T08:55:37+00:00"
+        },
+        {
+            "name": "smalot/pdfparser",
+            "version": "v2.12.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/smalot/pdfparser.git",
+                "reference": "8440edbf58c8596074e78ada38dcb0bd041a5948"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/smalot/pdfparser/zipball/8440edbf58c8596074e78ada38dcb0bd041a5948",
+                "reference": "8440edbf58c8596074e78ada38dcb0bd041a5948",
+                "shasum": ""
+            },
+            "require": {
+                "ext-iconv": "*",
+                "ext-zlib": "*",
+                "php": ">=7.1",
+                "symfony/polyfill-mbstring": "^1.18"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Smalot\\PdfParser\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastien MALOT",
+                    "email": "sebastien@malot.fr"
+                }
+            ],
+            "description": "Pdf parser library. Can read and extract information from pdf file.",
+            "homepage": "https://www.pdfparser.org",
+            "keywords": [
+                "extract",
+                "parse",
+                "parser",
+                "pdf",
+                "text"
+            ],
+            "support": {
+                "issues": "https://github.com/smalot/pdfparser/issues",
+                "source": "https://github.com/smalot/pdfparser/tree/v2.12.0"
+            },
+            "time": "2025-03-31T13:16:09+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -1206,6 +1523,91 @@
             "time": "2025-01-02T08:10:11+00:00"
         },
         {
+            "name": "theodo-group/llphant",
+            "version": "0.10.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LLPhant/LLPhant.git",
+                "reference": "2b37713fd93909564d72e40b62a4059fc9bdd551"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LLPhant/LLPhant/zipball/2b37713fd93909564d72e40b62a4059fc9bdd551",
+                "reference": "2b37713fd93909564d72e40b62a4059fc9bdd551",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.4.5",
+                "guzzlehttp/psr7": "^2.7",
+                "openai-php/client": "^v0.13.0",
+                "php": "^8.1.0",
+                "phpoffice/phpword": "^1.4.0",
+                "psr/http-message": "^2.0",
+                "psr/log": "^3.0",
+                "smalot/pdfparser": "^2.11"
+            },
+            "require-dev": {
+                "codewithkyrian/chromadb-php": "^0.3.0",
+                "doctrine/orm": "^2.20.0",
+                "elasticsearch/elasticsearch": "^8.15",
+                "hkulekci/qdrant": "^v0.5.7",
+                "laravel/pint": "v1.15.3",
+                "mockery/mockery": "^1.6.12",
+                "opensearch-project/opensearch-php": "^2.3",
+                "pestphp/pest": "^v2.36.0",
+                "pestphp/pest-plugin-arch": "^2.7.0",
+                "pestphp/pest-plugin-type-coverage": "2.8.0",
+                "phpstan/phpstan": "1.10.55",
+                "predis/predis": "^2.2",
+                "rector/rector": "^0.16.0",
+                "symfony/cache": "^7.2",
+                "symfony/process": "^v7.1.8",
+                "symfony/var-dumper": "^7.2"
+            },
+            "suggest": {
+                "codewithkyrian/chromadb-php": "This is required for the ChromaDBVectorStore.",
+                "doctrine/orm": "This is required for the DoctrineVectoreStore. This should be working with any version ^2.13.0",
+                "elasticsearch/elasticsearch": "This is required for the ElasticsearchVectoreStore.",
+                "hkulekci/qdrant": "This is required for the QdrantVectoreStore.",
+                "opensearch-project/opensearch-php": "This is required for the OpenSearchVectorStore.",
+                "predis/predis": "This is required for the RedisVectoreStore.",
+                "symfony/cache": "This is one of the possible types of psr/cache needed by doctrine/orm"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LLPhant\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maxime Thoonsen"
+                }
+            ],
+            "description": "LLPhant is a library to help you build Generative AI applications.",
+            "keywords": [
+                "anthropic",
+                "api",
+                "gpt-4",
+                "language",
+                "llm",
+                "mistral",
+                "ollama",
+                "openai",
+                "php",
+                "vectorstore"
+            ],
+            "support": {
+                "issues": "https://github.com/LLPhant/LLPhant/issues",
+                "source": "https://github.com/LLPhant/LLPhant/tree/0.10.2"
+            },
+            "time": "2025-06-13T10:20:04+00:00"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v5.6.2",
             "source": {
@@ -1288,6 +1690,64 @@
                 }
             ],
             "time": "2025-04-30T23:37:27+00:00"
+        },
+        {
+            "name": "webmozart/assert",
+            "version": "1.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webmozarts/assert.git",
+                "reference": "11cb2199493b2f8a3b53e7f19068fc6aac760991"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/11cb2199493b2f8a3b53e7f19068fc6aac760991",
+                "reference": "11cb2199493b2f8a3b53e7f19068fc6aac760991",
+                "shasum": ""
+            },
+            "require": {
+                "ext-ctype": "*",
+                "php": "^7.2 || ^8.0"
+            },
+            "conflict": {
+                "phpstan/phpstan": "<0.12.20",
+                "vimeo/psalm": "<4.6.1 || 4.6.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5.13"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.10-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webmozart\\Assert\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bernhard Schussek",
+                    "email": "bschussek@gmail.com"
+                }
+            ],
+            "description": "Assertions to validate method input/output with nice error messages.",
+            "keywords": [
+                "assert",
+                "check",
+                "validate"
+            ],
+            "support": {
+                "issues": "https://github.com/webmozarts/assert/issues",
+                "source": "https://github.com/webmozarts/assert/tree/1.11.0"
+            },
+            "time": "2022-06-03T18:03:27+00:00"
         }
     ],
     "packages-dev": [],
