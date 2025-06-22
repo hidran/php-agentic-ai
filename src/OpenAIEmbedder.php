@@ -1,30 +1,43 @@
 <?php
 namespace App;
-use LLPhant\Embeddings\Document;
-use LLPhant\Embeddings\EmbeddingGenerator\EmbeddingGeneratorInterface;
-use LLPhant\Embeddings\OpenAIEmbeddingGenerator;
 
-class OpenAIEmbedder implements EmbeddingGeneratorInterface {
-    public function __construct(private readonly OpenAIEmbeddingGenerator $g) {}
+use App\EmbedderInterface;
+use LLPhant\Embeddings\EmbeddingGenerator\OpenAI\OpenAI3SmallEmbeddingGenerator;
 
+/**
+ * OpenAIEmbedder wraps the LLPhant OpenAI3SmallEmbeddingGenerator
+ * and implements the application EmbedderInterface for RAG.
+ */
+class OpenAIEmbedder implements EmbedderInterface
+{
+    private OpenAI3SmallEmbeddingGenerator $generator;
 
-    public function embedText(string $text): array
+    /**
+     * @param OpenAI3SmallEmbeddingGenerator $generator    LLPhant embedding generator
+     */
+    public function __construct(OpenAI3SmallEmbeddingGenerator $generator)
     {
-        return $this->g->generateEmbedding($text);
+        $this->generator = $generator;
     }
 
-    public function embedDocument(Document $document): Document
+    /**
+     * Embed the given text into a semantic vector.
+     *
+     * @param string $text    The text to embed
+     * @return float[]        Embedding vector
+     */
+    public function embed(string $text): array
     {
-        // TODO: Implement embedDocument() method.
+        return $this->generator->embedText($text);
     }
 
-    public function embedDocuments(array $documents): array
-    {
-        // TODO: Implement embedDocuments() method.
-    }
-
+    /**
+     * Get the dimensionality of the embedding vector.
+     *
+     * @return int
+     */
     public function getEmbeddingLength(): int
     {
-        // TODO: Implement getEmbeddingLength() method.
+        return $this->generator->getEmbeddingLength();
     }
 }

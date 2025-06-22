@@ -2,44 +2,53 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 use Dotenv\Dotenv;
-use LLPhant\Embeddings\EmbeddingGenerator\OpenAI\OpenAI3SmallEmbeddingGenerator;
+use Qdrant\Config;
+use Qdrant\Http\Builder;
+use Qdrant\Qdrant;
 use LLPhant\OpenAIConfig;
-use App\QdrantRepository;
-use App\RagService;
+use LLPhant\Embeddings\EmbeddingGenerator\OpenAI\OpenAI3SmallEmbeddingGenerator;
+use App\{
+    OpenAIEmbedder,
+    QdrantRepository,
+    FAQAgent,
+    LoggingAgent,
+    FallbackAgent,
+    StaticAgent
+};
 
 
+// 1. Load environment variables
 Dotenv::createImmutable(__DIR__ . '/..')->load();
 
+// 2. Configure OpenAI embedding generator
 $config = new OpenAIConfig();
 $config->apiKey = $_ENV['OPENAI_API_KEY'];
 if (!empty($_ENV['OPENAI_BASE_URL'])) {
     $config->url = $_ENV['OPENAI_BASE_URL'];
 }
 
-// Initialize embedding generator
-$embedder = new OpenAI3SmallEmbeddingGenerator($config);
+$generator = new OpenAI3SmallEmbeddingGenerator($config);
+$embedder  = new OpenAIEmbedder($generator); // implements EmbedderInterface
 
-
-// Initialize OpenAI client
-$openaiClient = OpenAI::factory()
-    ->withApiKey($_ENV['OPENAI_API_KEY'])
-    ->make();
-
-// Initialize Qdrant vector store
-$qdrant = new \Qdrant\Qdrant(
-    (new \Qdrant\Http\Builder())->build(new \Qdrant\Config($_ENV['QDRANT_URL']))
+// 3. Initialize Qdrant repository
+$qdrant = new Qdrant(
+    (new Builder())
+        ->build(new Config($_ENV['QDRANT_URL']))
 );
 $repo = new QdrantRepository($qdrant);
 
-// Initialize RAG service
-$rag = new RagService(
-    $openaiClient,
-   $embedder,
-    $repo,
-    'faqs',
-    3
+// 4. Build the agent pipeline
+$openaiClient  = OpenAI::client($_ENV['OPENAI_API_KEY']);
+
+$faqAgent      = new FAQAgent($openaiClient, $embedder, $repo, 3);
+$loggingAgent  = new LoggingAgent($faqAgent);
+$fallbackAgent = new FallbackAgent(
+    $loggingAgent,
+    new StaticAgent("I'm , I don't know that answer."),
+    0.6
 );
 
+// 5. HTTP request handling
 $q = trim($_GET['q'] ?? '');
 if (!$q) {
     http_response_code(400);
@@ -51,7 +60,9 @@ if (!$q) {
 header('Content-Type: application/json');
 
 try {
-    echo json_encode($rag->answer($q));
-} catch (\Exception $e) {
+    $answer = $fallbackAgent->handle($q);
+    echo json_encode(['answer' => $answer]);
+} catch (Throwable $e) {
+    http_response_code(500);
     echo json_encode(['error' => $e->getMessage()]);
 }
